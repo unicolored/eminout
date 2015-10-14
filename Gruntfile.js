@@ -144,7 +144,7 @@ module.exports = function( grunt ) {
             },
             'my_target': {
                 files: {
-                    '<%= paths.themepath %>js/scripts.min.js': [ '<%= paths.devpath %>javascript/scripts.js' ],
+                    '<%= paths.themepath %>script.js': [ '<%= paths.devpath %>javascript/tmp/scripts_concat.js' ],
                 }
             },
         },
@@ -168,12 +168,12 @@ module.exports = function( grunt ) {
                 options: {
                     sourceMap: false,
                 },
-                dest: '<%= paths.themepath %>js/tmp/bower_concat.js',
+                dest: '<%= paths.devpath %>javascript/tmp/bower_concat.js',
                 // Je ne charge pas les css de bower actuellement
                 // mais la feuille est générée tout de même
                 cssDest: '<%= paths.temppath %>bower_concat.css',
-                include: [  ],
-                exclude: [  ],
+                include: [],
+                exclude: [],
                 dependencies: {},
                 bowerOptions: {
                     relative: false
@@ -196,7 +196,7 @@ module.exports = function( grunt ) {
             },
             dist: {
                 files: {
-                    '<%= paths.themepath %>js/scripts.js': [ '<%= paths.themepath %>js/tmp/bower_concat.js', '<%= paths.devpath %>javascript/scripts.js' ]
+                    '<%= paths.devpath %>javascript/tmp/scripts_concat.js': [ '<%= paths.devpath %>javascript/tmp/bower_concat.js', '<%= paths.devpath %>javascript/scripts.js' ]
                 }
             }
         },
@@ -378,10 +378,10 @@ module.exports = function( grunt ) {
       // makes all src relative to cwd
                     {
                         src: '<%= paths.themepath %>style.css',
-                        dest: '<%= paths.themepath %>style.<%= pkg.version %>.css',
+                        dest: '<%= paths.themepath %>css/style.<%= pkg.version %>.css',
       },
                     {
-                        src: '<%= paths.themepath %>js/scripts.min.js',
+                        src: '<%= paths.themepath %>script.js',
                         dest: '<%= paths.themepath %>js/scripts.<%= pkg.version %>.min.js',
       },
     ],
@@ -457,7 +457,7 @@ module.exports = function( grunt ) {
     } );
     grunt.registerTask( 'reloadJs', function( target ) {
         if ( target === 'prod' ) {
-            grunt.task.run( [ 'jsbeautifier', 'jshint', 'concat:dist', 'bower_concat', 'uglify' ] );
+            grunt.task.run( [ 'jsbeautifier', 'jshint', 'bower_concat', 'concat:dist', 'uglify' ] );
         } else if ( target === 'dev' ) {
             //grunt.task.run( [ 'jsbeautifier', 'jshint' ] );
             grunt.task.run( [ 'jsbeautifier', 'jshint', 'concat:dist', 'bower_concat', 'uglify' ] );
