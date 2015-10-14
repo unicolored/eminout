@@ -1,0 +1,9 @@
+{
+  "themename": "Rock Eminout",
+  "themeuri": "http://emailing.fromscratch.xyz",
+  "themetemplate":"bodyrock",
+  "themetextdomain":"rock-eminout",
+  "themeauthor":"<%= developper.name %>",
+  "themeauthoruri":"<%= developper.authoruri %>",
+  "themetemplateversion":"0.0.2"
+}

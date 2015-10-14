@@ -1,0 +1,10 @@
+{
+  "mainsitepath":"htdocs/",
+  "contentpath":"htdocs/wp-content/",
+  "themepath":"htdocs/wp-content/themes/rock-eminout/",
+  "relativethemepath":"wp-content/themes/rock-eminout/",
+  "libspath":"bower_components/",
+  "assetspath":"htdocs/assets/",
+  "devpath":"dev/",
+  "temppath":"tmp/"
+}

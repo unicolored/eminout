@@ -1,0 +1,26 @@
+{
+  "name": "Eminout",
+  "homepage": "http://emailing.fromscratch.xyz",
+  "version": "0.0.1",
+  "authors": [
+    "Gilles H. <contact@gilleshoarau.com>"
+  ],
+  "moduleType": [
+    "amd",
+    "es6",
+    "globals",
+    "node",
+    "yui"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "bootstrap": "3.3.5"
+  },
+  "appPath": "htdocs"
+}

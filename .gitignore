@@ -1,0 +1,53 @@
+##
+# Operating system files
+.Spotlight-V100
+.Trashes
+.DS_Store
+.DS_Store?
+thumbs.db
+Thumbs.db
+.vagrant
+*.log
+.sass-cache
+.*/
+
+## Root files
+myhost.json
+
+## Root folders
+bower_components/
+etc/
+node_modules/
+tmp/
+
+##
+# DEV
+dev/yesimlocal.php
+
+## Site en production
+htdocs/wp-content/themes/bodyrock/
+htdocs/wp-content/themes/rock-eminout/dev/
+
+##
+# Wordpress
+htdocs/wc-logs/
+htdocs/wp-admin/
+htdocs/wp-includes/
+htdocs/wp-*.php
+htdocs/xmlrpc.php
+
+htdocs/wp-content/cache/
+!htdocs/wp-content/cache/.htaccess
+htdocs/wp-content/_backup/
+htdocs/wp-content/languages/
+htdocs/wp-content/plugins/
+htdocs/wp-content/upgrade/
+htdocs/wp-content/uploads/
+htdocs/wp-content/*.php
+
+htdocs/da/wp-content/themes/*.php
+htdocs/da/wp-content/themes/twenty*/
+
+htdocs/.htaccess
+htdocs/index.php
+htdocs/license.txt
