@@ -71,7 +71,7 @@ module.exports = function( grunt ) {
                 files: {
                     '<%= paths.temppath %>style.dev.css': '<%= paths.devpath %>less/style.less',
                 }
-            }
+            },
             wordpress: {
                 files: {
                     '<%= paths.assetspath %>css/styles-login.css': '<%= paths.devpath %>less/login-style.less'
