@@ -229,19 +229,6 @@ module.exports = function( grunt ) {
         ########   ## ##      ########  ######## ##        ########  #######     ##
         */
         /*************************************************************************************************************************************************/
-        /*
-        sftp: {
-            test: {
-                files: {
-                    './': '*json'
-                },
-                options: {
-                    path: '/tmp/',
-                    config: 'myhost',
-                    showProgress: true
-                }
-            }
-        },*/
         gitpush: {
             originmaster: {
                 options: {
@@ -257,7 +244,7 @@ module.exports = function( grunt ) {
         },
         sshexec: {
             deploy: {
-                command: 'deploy www.unicolored.com.git',
+                command: 'deploy <%= wp.themedomain %>.git',
                 options: {
                     config: 'myhost'
                 }
@@ -436,7 +423,7 @@ module.exports = function( grunt ) {
             - copie du fichier yesimlocal.php dans /dev/
             - suppression du manifest.xml et du .appcache dans /htdocs/
             */
-                grunt.task.run( [ 'copy:yesimlocal', 'clean:webapp' ] );
+                grunt.task.run( [ 'copy:yesimlocal' ] );
             break;
             case 'prod':
                 /*
@@ -444,7 +431,7 @@ module.exports = function( grunt ) {
                 - suppression du fichier imlocal.php dans /dev/
                 - copie des fichiers manifest.xml et .appcache dans /htdocs/
                 */
-                    grunt.task.run( [ 'clean:yesimlocal', 'copy:webapp' ] );
+                    grunt.task.run( [ 'clean:yesimlocal' ] );
                 break;
         }
     } );
