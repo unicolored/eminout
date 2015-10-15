@@ -1,0 +1,21 @@
+{
+  "version": "4.4.0",
+  "name": "GillesHoarau.com",
+  "description": "Communication visuelle & Développement Web",
+  "launch_path": "/offline.html",
+  "appcache_path": "/offline.appcache",
+  "icons": {
+    "16": "/img/ico/16.4.4.0.png",
+    "48": "/img/ico/48.4.4.0.png",
+    "128": "/img/ico/128.4.4.0.png"
+  },
+  "developer": {
+    "name": "Gilles Hoarau",
+    "url": "https://www.gilleshoarau.com/a-propos/"
+  },
+  "installs_allowed_from": ["*"],
+  "default_locale": "fr",
+  "permissions": {
+    "systemXHR": {"description": "."}
+  }
+}

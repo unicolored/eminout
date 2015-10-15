@@ -1,0 +1,91 @@
+hr.clear {
+  .clearfix;
+  clear:both;
+  border:none !important;
+  margin:0;
+  padding:0;
+  height:none;
+}
+
+.mx_imagedefond {
+  background-attachment: fixed !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+/*************************************************************************/
+/* MIXINS ****************************************************************/
+/*************************************************************************/
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+//////////////////////////////////////////////////////////////////////
+.btn-cmjn(@color) {
+  color:@white;
+  border-color:@color;
+  background:darken(@color,20%);
+  .border-top-radius(2em);
+  .border-bottom-radius(2em);
+  width:3em;
+  height:3em;
+  padding:.75em 0;
+  span {
+    font-size:1.5em;
+    margin:0;
+    padding:0;
+    font-weight:700;
+    text-shadow:0px -1px 0px @black;
+  }
+  &:hover {
+    background:@color;
+  }
+}
+.color-cyan {
+  .btn-cmjn(#0086ff);
+}
+.color-magenta {
+  .btn-cmjn(#f50085);
+}
+.color-jaune {
+  .btn-cmjn(#ffff00);
+}
+.color-noir {
+  .btn-cmjn(@black);
+}
+
+//////////////////////////////////////////////////////////////////////
+// MIXINS
+.box3D(@color:@bg) {
+  border-top:1px solid lighten(@color,10%);
+  border-right:1px solid lighten(@color,5%);
+  border-bottom:1px solid darken(@color,10%);
+  border-left:1px solid darken(@color,5%);
+}
+
+/*
+##         ## ##      ######## ######## ##     ## ######## ########  ######
+##         ## ##         ##    ##        ##   ##     ##    ##       ##    ##
+##       #########       ##    ##         ## ##      ##    ##       ##
+##         ## ##         ##    ######      ###       ##    ######    ######
+##       #########       ##    ##         ## ##      ##    ##             ##
+##         ## ##         ##    ##        ##   ##     ##    ##       ##    ##
+########   ## ##         ##    ######## ##     ##    ##    ########  ######
+*/
+.labelInterface {
+  color:@white;
+  font-family:@shareTech, Helvetica, Arial, sans-serif;
+  letter-spacing:-.05em;
+  text-shadow:0 1px 0 lighten(@bg-lighter,15%);
+  text-transform:uppercase;
+}
+.txtInterface {
+  color:lighten(@bg-lighter,5%);
+  font-family:@shareTech, Helvetica, Arial, sans-serif;
+  font-size:22px;
+  letter-spacing:-.05em;
+  text-shadow:0 -1px 0 lighten(@bg-lighter,15%);
+  text-transform: capitalize;
+}

@@ -18,7 +18,11 @@
     "node_modules",
     "bower_components"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "bootswatch": "~3.3.5+4",
+    "jquery-form-validator": "~2.2.81",
+    "mandrill-api": "~1.0.38"
+  },
   "devDependencies": {
     "bootstrap": "3.3.5"
   },

@@ -1,0 +1,64 @@
+@fontBase: 16px;
+@espacement: 50px;
+@espacement-sm: 25px;
+
+// Tailles Pixel
+@spXXL: 256px;
+@spXL: 128px;
+@spL: 64px;
+@sp1: 32px;
+@spS: 16px;
+@spXS: 8px;
+@spXXS: 2px;
+// Tailles Em
+@sXXL: 25.6em;
+@sXL: 12.8em;
+@sL: 6.4em;
+@s1: 3.2em;
+@sS: 1.6em;
+@sXS: .8em;
+@sXXS: .2em;
+// Shadows
+.sXXL(@color: @txtShadowcolor) {
+  .box-shadow(0px 0px 7px @color);
+}
+.sXL(@color: @txtShadowcolor) {
+  .box-shadow(0px 0px 6px @color);
+}
+.sL(@color: @txtShadowcolor) {
+  .box-shadow(0px 0px 5px @color);
+}
+.s1(@color: @txtShadowcolor) {
+  .box-shadow(0px 0px 4px @color);
+}
+.sS(@color: @txtShadowcolor) {
+  .box-shadow(0px 0px 3px @color);
+}
+.sXS(@color: @txtShadowcolor) {
+  .box-shadow(0px 0px 2px @color);
+}
+.sXXS(@color: @txtShadowcolor) {
+  .box-shadow(0px 0px 1px @color);
+}
+// zIndex
+.zXXL {
+  z-index: 40000;
+}
+.zXL {
+  z-index: 20000;
+}
+.zL {
+  z-index: 10000;
+}
+.z1 {
+  z-index: 5000;
+}
+.zS {
+  z-index: 2500;
+}
+.zXS {
+  z-index: 1250;
+}
+.zXXS {
+  z-index: 725;
+}

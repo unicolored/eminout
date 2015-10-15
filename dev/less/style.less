@@ -1,3 +1,47 @@
+/*! Styles*/
+@themepath: '/wp-content/themes/rock-eminout/';
+// Mes variables
+@import "_variables/_load.less";
+/* <BOOTSTRAP> */
+//@import "_bootstrap/_bootstrap_replace.less"; // Configuration de la config Bootstrap
+@import "../../bower_components/bootswatch/flatly/variables.less"; // Bootswatch
+@import "../../bower_components/bootswatch/flatly/bootswatch.less"; // Bootswatch
+@import "_bootstrap/_bootstrap_load.less"; // Chargement de Bootstrap original
+/* </BOOTSTRAP> */
+// Mes mixins
+@import "_mixins/_animations.less";
+@import "_mixins/_custom.less";
+@import "_mixins/_flex.less";
+// Mes personnalisations de composants externes à Bootstrap
+@import "external/_fonts.less"; // Fonts
+@import "external/_icomoon.less"; // Icones
+@import "external/_jquery_form_validator.less"; // Icones
+// Mes personnalisations de composants Wordpress
+@import "wp/_wp.less";
+/*****************************************************/
+html {}
 body {
-  background:black;
+  cursor:default;
+  position:relative;
+
+  ::selection {
+    background:@brand-primary-dark;
+    color: @brand-primary-white;
+  }
+  ::-moz-selection {
+    background:@brand-primary-dark;
+    color: @brand-primary-white;
+  }
+
+  /* <Eléments uniques par page> */
+  @import "body/__Header.less";
+  @import "body/__Section.less";
+  @import "body/__Footer.less";
+  @import "body/_Article.less";
+  @import "body/_Aside.less";
 }
+
+/* Pages Wordpress globales */
+@import "wp/wp_home.less";
+@import "wp/wp_page.less";
+@import "wp/wp_single.less";

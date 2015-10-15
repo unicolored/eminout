@@ -144,7 +144,7 @@ module.exports = function( grunt ) {
             },
             'my_target': {
                 files: {
-                    '<%= paths.themepath %>script.js': [ '<%= paths.devpath %>javascript/tmp/scripts_concat.js' ],
+                    '<%= paths.themepath %>scripts.js': [ '<%= paths.devpath %>javascript/tmp/scripts_concat.js' ],
                 }
             },
         },
@@ -172,7 +172,7 @@ module.exports = function( grunt ) {
                 // Je ne charge pas les css de bower actuellement
                 // mais la feuille est générée tout de même
                 cssDest: '<%= paths.temppath %>bower_concat.css',
-                include: [],
+                include: [ 'jquery', 'bootstrap', 'jquery-form-validator', 'mandrill-api' ],
                 exclude: [],
                 dependencies: {},
                 bowerOptions: {
@@ -196,7 +196,7 @@ module.exports = function( grunt ) {
             },
             dist: {
                 files: {
-                    '<%= paths.devpath %>javascript/tmp/scripts_concat.js': [ '<%= paths.devpath %>javascript/tmp/bower_concat.js', '<%= paths.devpath %>javascript/scripts.js' ]
+                    '<%= paths.devpath %>javascript/tmp/scripts_concat.js': [ '<%= paths.devpath %>javascript/tmp/bower_concat.js', '<%= paths.devpath %>javascript/script.js' ]
                 }
             }
         },
@@ -296,7 +296,7 @@ module.exports = function( grunt ) {
             },
             // LIVERELOAD : fichiers modifiés qui n'appellent pas d'autres tâches que le reload
             livereload: {
-                files: [ '<%= paths.themepath %>{,*/,*/*/,*/*/*/}*.php', 'htdocs/.htaccess' ]
+                files: [ '<%= paths.themepath %>{,*/,*/*/,*/*/*/}*.php', 'htdocs/.htaccess', 'htdocs/wp-content/themes/bodyrock/{,*/,*/*/,*/*/*/}*.php' ]
             },
         },
         /*

@@ -1,0 +1,39 @@
+//////////////////////
+// Ici je complète les styles .visible-* de bootstrap pour mes deux nouvelles tailles : xl et xxl
+// XL screen / wide desktop
+// Note: Deprecated @screen-lg and @screen-lg-desktop as of v3.0.1
+@screen-xl: 1602px;
+@screen-xl-min: @screen-xl;
+@screen-xl-desktop: @screen-xl-min;
+
+// XL screen / wide desktop
+// Note: Deprecated @screen-lg and @screen-lg-desktop as of v3.0.1
+@screen-xxl: 1922px;
+@screen-xxl-min: @screen-xxl;
+@screen-xxl-desktop: @screen-xxl-min;
+@screen-xl-max: (@screen-xxl-min - 1);
+
+.visible-xl,
+.visible-xxl {
+  display: none;
+}
+
+
+@media (min-width: @screen-xxl) {
+  .visible-lg,
+  .visible-xl {
+    display: none !important;
+  }
+  .visible-xxl {
+    display: block;
+  }
+
+}
+@media (min-width: @screen-xl) {
+    .visible-lg {
+      display: none !important;
+    }
+    .visible-xl {
+      display: block;
+    }
+}
