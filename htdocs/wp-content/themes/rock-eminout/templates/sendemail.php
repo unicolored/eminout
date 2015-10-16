@@ -40,3 +40,23 @@ if ($valid < count($output_array[0])) {
 }
 
 ?>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+var listTags = [
+
+    <?php
+    $count = count($output_array[0]);
+    $i = 0;
+    foreach($output_array[0] as $tag) {
+      $i++;
+      $sep = $i < $count ? ',' : false;
+      print "'".cleanTag($tag)."'".$sep."\n";
+    }
+    //print json_encode($output_array[0]);
+    ?>
+
+];
+//exported listTags
+/* ]]> */
+</script>

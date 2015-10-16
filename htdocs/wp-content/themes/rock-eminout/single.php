@@ -1,6 +1,5 @@
 <?php get_header(); ?>
 
-<div class="container">
   <div class="row">
 
     <section class="emailModele">
@@ -15,6 +14,31 @@
         get_template_part( 'templates/_nocontent');
       }
       ?>
+      <div id="Panel">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title"><span class="label label-default">From :</span>aze</h3>
+            <h3 class="panel-title"><span class="label label-default">To :</span>aze</h3>
+            <h3 class="panel-title"><span class="label label-default">Sujet :</span>aze</h3>
+          </div>
+          <div class="panel-body">
+            <div class="" id="Preview">
+              <em>En attente...</em>
+            </div>
+
+          </div>
+          <div class="panel-footer">
+            <button id="send" class="btn btn-danger"><span class="icon icon-mail"></span> ENVOYER</button>
+            <button id="send" class="btn btn-default"><span class="icon icon-mail"></span> TEST</button>
+            <div class="pull-right" id="response">
+              <em>En attente de l'envoi...</em>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="br_preview">
+
+      </div>
       <hr>
       <div id="myModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
         <div class="modal-dialog modal-lg">
@@ -62,6 +86,5 @@
       <?php get_template_part( 'templates/sendemail'); ?>
     </section>
   </div>
-</div>
 
 <?php get_footer();?>

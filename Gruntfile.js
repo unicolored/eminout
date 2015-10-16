@@ -70,24 +70,30 @@ module.exports = function( grunt ) {
         },
         prettify: {
             options: {
-                'indent': 4,
+                'indent': 1,
                 'indent_char': ' ',
                 'indent_scripts': 'normal',
                 'wrap_line_length': 0,
-                'brace_style': 'collapse',
+                'brace_style': 'end-expand',
                 'preserve_newlines': false,
-                'max_preserve_newlines': 1,
+                'max_preserve_newlines': 0,
                 'condense': true,
                 'indent_inner_html': true,
                 'unformatted': [
-                  'a',
-                  'code',
-                  'pre'
+                  'a', 'sub', 'sup', 'b', 'i', 'u'
                 ]
             },
+            /*
             files: {
-                'htdocs/assets/templates/generic-mail/aze.html': [ 'htdocs/assets/templates/generic-mail/index.html' ]
-            }
+                'htdocs/assets/templates/generic-mail/_.html': [ 'htdocs/assets/templates/generic-mail/_.html' ]
+            },*/
+            all: {
+                expand: true,
+                cwd: 'htdocs/assets/templates/generic-mail/',
+                ext: '.html',
+                src: [ '*.html' ],
+                dest: 'htdocs/assets/templates/generic-mail/'
+            },
         },
         // GENERATION DU CSS
         less: {

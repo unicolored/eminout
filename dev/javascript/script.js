@@ -4,24 +4,43 @@
 /*global jQuery:false */
 /*global $:false */
 /*global mandrill:false */
+/*global alert:false */
 jQuery( document ).ready( function() {
     'use strict';
+    var $errormessages = $( '#formerrors' );
     // Chargement du template Mail
     // Au chargement du modal
+    $( '[toggle="preview"]' ).on( 'click', function() {
+        var modification = $( '.br_artcontent' ).html();
+        //alert( listTags );
+        jQuery.each( listTags, function() {
+            //alert( this );
+            //alert( $( 'input[name="' + this + '"]' ).val() );
+            modification = modification.replace( '*|' + this + '|*', $( 'input[name="' + this + '"]' ).val() );
+        } );
+        //modification = modification.replace( '*|DEST_FNAME|*', $( 'input[name="DEST_FNAME"]' ).val() );
+        $( '.br_artcontent' ).hide();
+        $( '.br_preview' ).hide().html( modification );
+        $( '#Preview' ).load( '/assets/templates/generic-mail/_.html', function() {
+            $( '.br_artcontent' ).hide();
+            $( '#fs_replace' ).html( $( '.br_preview' ).html() );
+        } );
+        //$( '#myModal' ).modal( 'show' );
+    } );
+    /*
     $( '#myModal' ).on( 'show.bs.modal', function() {
         $( '#preview' ).load( '/assets/templates/generic-mail/_.html', function() {
-            $( '#fs_replace' ).html( $( '.br_artcontent' ).html() );
+            $( '#fs_replace' ).html( $( '.br_preview' ).html() );
         } );
     } );
+    */
     // Validation du formulaire
     $.validate( {
         form: '#contactMandrill',
-        validateOnBlur: true,
+        validateOnBlur: false,
+        errorMessagePosition: $errormessages,
         onSuccess: function() {
             //alert('The form '+$form.attr('id')+' is valid!');
-            $( '.leFormulaire' ).hide();
-            $( '.reponse' ).show();
-            $( '.freelances' ).hide();
             // MANDRILL
             var email = $( 'input#Email' ).val();
             //var textarea = $( 'textarea#Description' ).val().replace( /</g, '&lt;' ).replace( />/g, '&gt;' ).replace( /\n/g, '<br/>' );
@@ -33,7 +52,7 @@ jQuery( document ).ready( function() {
                     {
                         'name': 'short-preview',
                         'content': '<strong><a href="super">Hey</a> <em>Hello you</em></strong>'
-                    } ],
+          } ],
                 'message': {
                     'from_email': 'emailing@fromscratch.xyz',
                     'from_name': 'Emailing.fs',
@@ -42,7 +61,7 @@ jQuery( document ).ready( function() {
                             'email': 'gilles.hoarau@gmail.com',
                             'name': 'Gilles Hoarau',
                             'type': 'to'
-                        } ],
+              } ],
                     'headers': {
                         'Reply-To': email
                     },
@@ -62,7 +81,7 @@ jQuery( document ).ready( function() {
                         {
                             'name': 'EXPE_AUTHORFNAME',
                             'content': 'Gilles'
-                        } ],
+                } ],
                     'merge_vars': [
                         {
                             'rcpt': 'gilles.hoarau@gmail.com',
@@ -70,11 +89,11 @@ jQuery( document ).ready( function() {
                                 {
                                     'name': 'DEST_FNAME',
                                     'content': 'Gillou'
-                                } ]
-                        } ]
+                      } ]
+                    } ]
                 }
             };
-            sendTheMail( params );
+            //sendTheMail( params );
             return false; // Will stop the submission of the form
         }
     } );
@@ -83,7 +102,7 @@ jQuery( document ).ready( function() {
 
     function log( obj ) {
         $( '#response' ).text( JSON.stringify( obj ) );
-        alert( obj[ 0 ]._id );
+        //alert( obj[ 0 ]._id );
         return false;
     }
 
