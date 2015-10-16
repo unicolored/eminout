@@ -33,6 +33,9 @@
                     <h3 class="panel-title">Le sujet</h3>
                   </div>
                   <div class="panel-body">
+                    <div class="" id="preview">
+                      <em>En attente...</em>
+                    </div>
                     <div class="" id="response">
                       <em>En attente...</em>
                     </div>

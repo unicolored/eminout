@@ -60,6 +60,35 @@ module.exports = function( grunt ) {
         ########   ## ##       ######   ######   ######
         */
         /****************************/
+        inlinecss: {
+            main: {
+                options: {},
+                files: {
+                    '<%= paths.assetspath %>templates/generic-mail/_.html': '<%= paths.assetspath %>templates/generic-mail/_.html'
+                }
+            }
+        },
+        prettify: {
+            options: {
+                'indent': 4,
+                'indent_char': ' ',
+                'indent_scripts': 'normal',
+                'wrap_line_length': 0,
+                'brace_style': 'collapse',
+                'preserve_newlines': false,
+                'max_preserve_newlines': 1,
+                'condense': true,
+                'indent_inner_html': true,
+                'unformatted': [
+                  'a',
+                  'code',
+                  'pre'
+                ]
+            },
+            files: {
+                'htdocs/assets/templates/generic-mail/aze.html': [ 'htdocs/assets/templates/generic-mail/index.html' ]
+            }
+        },
         // GENERATION DU CSS
         less: {
             options: {
@@ -294,6 +323,17 @@ module.exports = function( grunt ) {
                 files: [ '<%= paths.devpath %>javascript/*.js' ], // which files to watch
                 tasks: [ 'reloadJs:dev' ],
             },
+            // SCRIPTS
+            // SCRIPTS
+            mailTemplate2: {
+                options: {
+                    nospawn: true,
+                    livereload: true // activation du reload
+                },
+                // Au changement d'un fichier .less, on appelle la tâche de compilation
+                files: [ '<%= paths.assetspath %>templates/*/*.html' ], // which files to watch
+                tasks: [ 'prettify', 'inlinecss' ],
+            },
             // LIVERELOAD : fichiers modifiés qui n'appellent pas d'autres tâches que le reload
             livereload: {
                 files: [ '<%= paths.themepath %>{,*/,*/*/,*/*/*/}*.php', 'htdocs/.htaccess', 'htdocs/wp-content/themes/bodyrock/{,*/,*/*/,*/*/*/}*.php' ]
@@ -341,59 +381,59 @@ module.exports = function( grunt ) {
         copy: {
             libsFonts: {
                 files: [
-      // makes all src relative to cwd
+        // makes all src relative to cwd
                     {
                         src: '<%= paths.devpath %>fonts/icomoon.eot',
                         dest: '<%= paths.themepath %>fonts/icomoon.<%= pkg.version %>.eot',
-      },
+        },
                     {
                         src: '<%= paths.devpath %>fonts/icomoon.woff',
                         dest: '<%= paths.themepath %>fonts/icomoon.<%= pkg.version %>.woff',
-      },
+        },
                     {
                         src: '<%= paths.devpath %>fonts/icomoon.ttf',
                         dest: '<%= paths.themepath %>fonts/icomoon.<%= pkg.version %>.ttf',
-      },
+        },
                     {
                         src: '<%= paths.devpath %>fonts/icomoon.svg',
                         dest: '<%= paths.themepath %>fonts/icomoon.<%= pkg.version %>.svg',
-      },
-    ],
+        },
+      ],
             },
             versioning: {
                 files: [
-      // makes all src relative to cwd
+        // makes all src relative to cwd
                     {
                         src: '<%= paths.themepath %>style.css',
                         dest: '<%= paths.themepath %>css/style.<%= pkg.version %>.css',
-      },
+        },
                     {
                         src: '<%= paths.themepath %>script.js',
                         dest: '<%= paths.themepath %>js/scripts.<%= pkg.version %>.min.js',
-      },
-    ],
+        },
+      ],
             },
             yesimlocal: {
                 files: [
-      // makes all src relative to cwd
+        // makes all src relative to cwd
                     {
                         src: 'assets/yesimlocal.php',
                         dest: '<%= paths.devpath %>yesimlocal.php',
-      }
-    ],
+        }
+      ],
             },
             webapp: {
                 files: [
-      // makes all src relative to cwd
+        // makes all src relative to cwd
                     {
                         src: 'assets/manifest.webapp',
                         dest: 'htdocs/manifest.webapp',
-      },
+        },
                     {
                         src: 'assets/offline.appcache',
                         dest: 'htdocs/offline.appcache',
-      },
-    ],
+        },
+      ],
             },
         }
     } );

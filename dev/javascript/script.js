@@ -6,6 +6,14 @@
 /*global mandrill:false */
 jQuery( document ).ready( function() {
     'use strict';
+    // Chargement du template Mail
+    // Au chargement du modal
+    $( '#myModal' ).on( 'show.bs.modal', function() {
+        $( '#preview' ).load( '/assets/templates/generic-mail/_.html', function() {
+            $( '#fs_replace' ).html( $( '.br_artcontent' ).html() );
+        } );
+    } );
+    // Validation du formulaire
     $.validate( {
         form: '#contactMandrill',
         validateOnBlur: true,
@@ -20,6 +28,12 @@ jQuery( document ).ready( function() {
             //var html = $( '.br_artcontent' ).text().replace( /</g, '&lt;' ).replace( />/g, '&gt;' ).replace( /\n/g, '<br/>' );
             var html = $( '.br_artcontent' ).html();
             var params = {
+                'template_name': 'generic-mail',
+                'template_content': [
+                    {
+                        'name': 'short-preview',
+                        'content': '<strong><a href="super">Hey</a> <em>Hello you</em></strong>'
+                    } ],
                 'message': {
                     'from_email': 'emailing@fromscratch.xyz',
                     'from_name': 'Emailing.fs',
@@ -28,8 +42,7 @@ jQuery( document ).ready( function() {
                             'email': 'gilles.hoarau@gmail.com',
                             'name': 'Gilles Hoarau',
                             'type': 'to'
-            }
-          ],
+                        } ],
                     'headers': {
                         'Reply-To': email
                     },
@@ -47,21 +60,18 @@ jQuery( document ).ready( function() {
                     'track_clicks': false,
                     'global_merge_vars': [
                         {
-                            'name': 'AUTHORFNAME',
+                            'name': 'EXPE_AUTHORFNAME',
                             'content': 'Gilles'
-                      }
-                    ],
+                        } ],
                     'merge_vars': [
                         {
                             'rcpt': 'gilles.hoarau@gmail.com',
                             'vars': [
                                 {
-                                    'name': 'FNAME',
+                                    'name': 'DEST_FNAME',
                                     'content': 'Gillou'
-                }
-              ]
-            }
-          ]
+                                } ]
+                        } ]
                 }
             };
             sendTheMail( params );
@@ -81,7 +91,7 @@ jQuery( document ).ready( function() {
         // Send the email!
         //alert( 'bam' );
         //log( m.messages );
-        m.messages.send( params, function( res ) {
+        m.messages.sendTemplate( params, function( res ) {
             log( res );
             //console.log( res );
             m.messages.info( {
