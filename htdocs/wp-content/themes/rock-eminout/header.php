@@ -17,11 +17,5 @@
 
 <body <?php body_class( array('rock') ); ?>>
 
-  <header id="Header">
-    <div class="br_header">
-      <?php get_template_part('templates/navbar'); ?>
-    </div>
-  </header>
-
-  <section id="Section">
-    <div class="br_section">
+  <!-- Uses a header that scrolls with the text, rather than staying locked at the top -->
+    <?php get_template_part('templates/toolbar') ?>

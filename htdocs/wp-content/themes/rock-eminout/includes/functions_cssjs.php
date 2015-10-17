@@ -15,8 +15,10 @@ add_action('wp_enqueue_scripts', YESWEARE=="dev" ? 'ScriptsLocaux' : 'ScriptsPro
 function ScriptsLocaux() {
   // SCRIPTS ET CSS EN DEVELOPPEMENT LOCAL
   // CSS
-  wp_enqueue_style('material-design-lite', get_stylesheet_directory_uri().'/css/material-design-lite.css', false, null, 'all');
-  wp_enqueue_style('style-style', get_stylesheet_directory_uri().'/style.css', array('material-design-lite'), null, 'all');
+  //wp_enqueue_style('material-design-lite', get_stylesheet_directory_uri().'/css/material-design-lite.css', false, null, 'all');
+  wp_enqueue_style('material-icons', 'https://fonts.googleapis.com/icon?family=Material+Icons', false, null, 'all');
+  wp_enqueue_style('angular-material', get_stylesheet_directory_uri().'/css/angular-material.css', false, null, 'all');
+  wp_enqueue_style('style-style', get_stylesheet_directory_uri().'/style.css', array('angular-material'), null, 'all');
   // JS
   wp_enqueue_script('bower', get_stylesheet_directory_uri() . "/dev/tmp/bower_concat_dev.js", false, null, true);
   wp_enqueue_script('angular', get_stylesheet_directory_uri() . "/dev/tmp/annotated.js", false, null, true);

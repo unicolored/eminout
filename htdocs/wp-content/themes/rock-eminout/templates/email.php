@@ -4,21 +4,7 @@
 //require( ABSPATH.'/wp-content/themes/rock-gilleshoarau/includes/wp_single.php');
 ?>
 <article itemscope="" itemtype="https://schema.org/CreativeWork">
-  <header class="artHeader">
-    <div class="br_artheader">
-      <div class="head cat-default">
-        <p itemprop="name"><?php echo get_the_title() ?> <em class="pull-right"><small>Par <?php print get_the_author() ?></small></em></p>
-      </div>
-    </div>
-  </header>
-  <footer class="artFooter hide">
-    <div class="br_artfooter">
-      <p>
-        <a href="<?php print get_author_posts_url(get_the_author_meta('ID')) ?>"><small>Par <?php print get_the_author() ?></small></a>
-        <small class="date"><?php echo get_the_date(); ?></small>
-      </p>
-    </div>
-  </footer>
+  
 
   <?php
   if(has_post_thumbnail()) {

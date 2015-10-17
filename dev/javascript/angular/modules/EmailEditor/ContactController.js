@@ -41,5 +41,5 @@ function( $scope, $http ) {
             } );
             return false;
         };
-  }
+}
 ] );

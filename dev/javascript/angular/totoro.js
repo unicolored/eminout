@@ -1,12 +1,13 @@
 /*!
 totoro */
-/*exported contact */
+/*exported totoro, select */
 console.info( 'Début du fichier totoro' );
 // INTERFACE
 var contact = angular.module( 'contact', [] );
+var select = angular.module( 'select', [ 'ngMaterial' ] );
 /*-------------------------------------*/
 // CREATION DE L'APPLICATION "TOTORO" //
-var totoro = angular.module( 'totoro', [ 'LocalStorageModule', 'contact',
+var totoro = angular.module( 'totoro', [ 'LocalStorageModule', 'select',
     function() {
         'use strict';
         console.info( 'Dernière dépendance chargée par totoro!' );
