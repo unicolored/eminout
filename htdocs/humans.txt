@@ -12,4 +12,4 @@
 	Site Url: http://emailing.fromscratch.xyz/
 	Keywords: emailing, marketing, prospection, leads
 	Language: French
-	Last Update: 2015-10-14
+	Last Update: 2015-10-17

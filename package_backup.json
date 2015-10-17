@@ -43,10 +43,8 @@
     "time-grunt": "^1.0.0"
   },
   "dependencies": {
-    "grunt-html-angular-validate": "^0.5.3",
     "grunt-inline-css": "^0.1.5",
     "grunt-ng-annotate": "^1.0.1",
-    "grunt-ngdocs": "^0.2.9",
     "grunt-prettify": "^0.4.0"
   }
 }
