@@ -17,7 +17,6 @@ global $output_global, $output_dest, $output_expe;
       <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Global</a></li>
       <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Destinataire</a></li>
       <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Expéditeur</a></li>
-      <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Paramètres</a></li>
     </ul>
 
     <!-- Tab panes -->
@@ -66,31 +65,6 @@ global $output_global, $output_dest, $output_expe;
         }
         ?>
         <hr>
-      </div>
-
-      <div role="tabpanel" class="tab-pane fade " id="settings">
-        <h3>Paramètres</h3>
-        <div class="form-group">
-          <label for="Sujet">Sujet</label>
-          <input class="form-control" id="Sujet" name="sujet" type="text" placeholder="<?php print get_the_title() ?>" data-validation="required" data-validation-error-msg="Sujet manquant"/>
-        </div>
-        <div class="form-group">
-          <label for="Template">Template</label>
-          <select class="form-control" id="Template" name="template">
-            <option value="none" selected="">Aucune</option>
-            <option value="generic-mail">Generic Mail</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="From">From</label>
-          <input class="form-control" id="From" name="from" type="text" placeholder="Email de l'expéditeur" data-validation="email required" data-validation-error-msg="Adresse email invalide"/>
-        </div>
-
-        <div class="form-group">
-          <label for="Description">Description</label>
-          <textarea class="form-control" id="Description" name="Description" placeholder="Votre message"></textarea>
-        </div>
-
       </div>
     </div>
 

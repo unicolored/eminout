@@ -1,90 +1,80 @@
 <?php get_header(); ?>
 
-  <div class="row">
+<div class="row">
 
-    <section class="emailModele">
+  <section class="emailModele">
 
-      <?php /* The Loop */
-      if ( have_posts() ) {
-        while ( have_posts() ) {
-          the_post();
-          get_template_part( 'templates/email');
-        }
-      } else {
-        get_template_part( 'templates/_nocontent');
+    <?php /* The Loop */
+    if ( have_posts() ) {
+      while ( have_posts() ) {
+        the_post();
+        get_template_part( 'templates/email');
       }
-      ?>
-      <div id="Panel">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title"><span class="label label-default">From :</span>aze</h3>
-            <h3 class="panel-title"><span class="label label-default">To :</span>aze</h3>
-            <h3 class="panel-title"><span class="label label-default">Sujet :</span>aze</h3>
-          </div>
-          <div class="panel-body">
-            <div class="" id="Preview">
-              <em>En attente...</em>
+    } else {
+      get_template_part( 'templates/_nocontent');
+    }
+    ?>
+    <div id="Panel">
+      <div class="panel panel-default">
+        <div class="panel-heading form-horizontal">
+          <div class="form-group">
+            <label for="Template" class="control-label col-sm-2">Template</label>
+            <div class="col-sm-10">
+              <select class="form-control" id="Template" name="template">
+                <option value="none" selected="">Aucune</option>
+              </select>
             </div>
+          </div>
+          <div class="form-group">
+            <label for="Template" class="control-label col-sm-2">From</label>
+            <div class="col-sm-10">
+              <input value="" class="form-control" id="From" name="from" type="email" placeholder="Email de l'expéditeur" data-validation="email required" data-validation-error-msg="Adresse email invalide">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="To" class="control-label col-sm-2">To</label>
+            <div class="col-sm-10">
+              <input value="" class="form-control" id="To" name="to" type="email" placeholder="Email du destinataire" data-validation="email required" data-validation-error-msg="Adresse email invalide">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="Sujet" class="control-label col-sm-2">Sujet</label>
+            <div class="col-sm-10">
+              <input value="<?php print get_the_title() ?>" class="form-control" id="Sujet" name="sujet" type="text" placeholder="<?php print get_the_title() ?>" data-validation="required" data-validation-error-msg="Sujet manquant">
+            </div>
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="" id="Preview">
+            <em>En attente...</em>
+          </div>
 
-          </div>
-          <div class="panel-footer">
-            <button id="send" class="btn btn-danger"><span class="icon icon-mail"></span> ENVOYER</button>
-            <button id="send" class="btn btn-default"><span class="icon icon-mail"></span> TEST</button>
-            <div class="pull-right" id="response">
-              <em>En attente de l'envoi...</em>
-            </div>
+        </div>
+        <div class="panel-footer">
+          <button id="sendMail" class="btn btn-danger"><span class="icon icon-mail"></span> ENVOYER</button>
+          <button id="testMail" class="btn btn-default"><span class="icon icon-mail"></span> TEST</button>
+          <div class="pull-right" id="response">
+            <em>En attente de l'envoi...</em>
           </div>
         </div>
       </div>
-      <div class="br_preview">
+    </div>
+    <div class="br_preview">
 
-      </div>
-      <hr>
-      <div id="myModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-        <div class="modal-dialog modal-lg">
+    </div>
 
-          <div class="modal-content">
-
-            <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Prévisualisation</h4>
-            </div>
-            <div class="modal-body">
-
-
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <h3 class="panel-title">Le sujet</h3>
-                  </div>
-                  <div class="panel-body">
-                    <div class="" id="preview">
-                      <em>En attente...</em>
-                    </div>
-                    <div class="" id="response">
-                      <em>En attente...</em>
-                    </div>
-                  </div>
-                </div>
-
-
-            </div>
-            <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button id="send" class="btn btn-danger"><span class="icon icon-mail"></span> ENVOYER</button>
-            </div>
-
-
-
-
-          </div>
+    <section class="commentaires">
+      <div class="br_section ">
+        <div class="well">
+          <?php comments_template(); ?>
         </div>
       </div>
+    </section>
+  </section>
+  <section class="emailSend">
+    <?php get_template_part( 'templates/sendemail'); ?>
+  </section>
 
-    </section>
-    <hr>
-    <section class="emailSend">
-      <?php get_template_part( 'templates/sendemail'); ?>
-    </section>
-  </div>
+</div>
 
 <?php get_footer();?>

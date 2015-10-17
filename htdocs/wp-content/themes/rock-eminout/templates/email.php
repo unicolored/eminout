@@ -7,11 +7,11 @@
   <header class="artHeader">
     <div class="br_artheader">
       <div class="head cat-default">
-        <h1 itemprop="name"><?php echo get_the_title() ?></h1>
+        <p itemprop="name"><?php echo get_the_title() ?> <em class="pull-right"><small>Par <?php print get_the_author() ?></small></em></p>
       </div>
     </div>
   </header>
-  <footer class="artFooter">
+  <footer class="artFooter hide">
     <div class="br_artfooter">
       <p>
         <a href="<?php print get_author_posts_url(get_the_author_meta('ID')) ?>"><small>Par <?php print get_the_author() ?></small></a>
@@ -19,7 +19,6 @@
       </p>
     </div>
   </footer>
-  <hr>
 
   <?php
   if(has_post_thumbnail()) {

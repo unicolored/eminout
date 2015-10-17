@@ -32,7 +32,7 @@ if ($valid < count($output_array[0])) {
   </div>';
 } else {
   print '
-  <div class="alert alert-info">
+  <div class="alert alert-info hide">
   <p><strong>Ce mail peut être envoyé</strong></p>
   <p><small>Editer les tags ci-dessous</small></p>
   </div>';
