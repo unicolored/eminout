@@ -10,33 +10,30 @@
 ########   ## ##       ######   ######           ######   ######   ######
 */
 //////// CHARGEMENT DES FEUILLES .CSS ET .JS
-// PAR DEFAUT css/style.css SONT CHARGES PAR BODYROCK sur toutes les pages
-//print YESWEARE;
-function wpdocs_dequeue_script() {
- wp_dequeue_script('dsq_count_script');
-}
-if (!is_single() || !is_page('a-propos')) {
-  add_action( 'wp_print_scripts', 'wpdocs_dequeue_script', 100 );
-}
 add_action('wp_enqueue_scripts', YESWEARE=="dev" ? 'ScriptsLocaux' : 'ScriptsProd');
 
 function ScriptsLocaux() {
   // SCRIPTS ET CSS EN DEVELOPPEMENT LOCAL
   // CSS
-  wp_enqueue_style('style-style', get_stylesheet_directory_uri().'/style.css', false, null, 'all');
-  wp_enqueue_script('scriptsglobaux', get_stylesheet_directory_uri() . "/scripts.js", false, null, true);
+  //wp_enqueue_style('material-design-lite', get_stylesheet_directory_uri().'/css/material-design-lite.css', false, null, 'all');
+  wp_enqueue_style('material-icons', 'https://fonts.googleapis.com/icon?family=Material+Icons', false, null, 'all');
+  wp_enqueue_style('angular-material', get_stylesheet_directory_uri().'/css/angular-material.css', false, null, 'all');
+  wp_enqueue_style('style-style', get_stylesheet_directory_uri().'/style.css', array('angular-material'), null, 'all');
+  // JS
+  wp_enqueue_script('bower', get_stylesheet_directory_uri() . "/dev/tmp/bower_concat_dev.js", false, null, true);
+  wp_enqueue_script('angular', get_stylesheet_directory_uri() . "/dev/tmp/annotated.js", false, null, true);
+  wp_enqueue_script('scriptsglobaux', get_stylesheet_directory_uri() . "/dev/javascript/script.js", array('bower','angular'), null, true);
 
 }
 function ScriptsProd() {
   // SCRIPTS EN PRODUCTION
   // CSS
+  wp_enqueue_style('material-design-lite', get_stylesheet_directory_uri().'/css/material-design-lite.css', false, null, 'all');
   wp_enqueue_style('style-child', get_stylesheet_directory_uri() . '/css/style.'.wp_get_theme('rock-eminout')->Version.'.css', false, null, 'all');
   // JS
-  //wp_enqueue_script('myjquery', "https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js", false, null, true);
-  wp_enqueue_script('scriptsglobaux', get_stylesheet_directory_uri() . "/js/scripts.".wp_get_theme('rock-eminout')->Version.".min.js", false, null, true);
-  if ( is_single() ) {
-    wp_enqueue_script('disqus', "http://ghcom.disqus.com/count.js", false, null, true);
-  }
+  wp_enqueue_script('jquery', "https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js", false, null, true);
+  wp_enqueue_script('angular', "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js", false, null, true);
+  wp_enqueue_script('scriptsglobaux', get_stylesheet_directory_uri() . "/js/scripts.".wp_get_theme('rock-eminout')->Version.".min.js", array('jquery','angular'), null, true);
 }
 
 
