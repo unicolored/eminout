@@ -32,7 +32,7 @@ jQuery( document ).ready( function() {
         $( '.br_artcontent' ).hide();
         $( '.br_preview' ).hide().html( modification );
         $( '#Preview' ).load( '/assets/templates/generic-mail/_.html', function() {
-            $( '.br_artcontent' ).hide();
+            //$( '.br_artcontent' ).hide();
             $( '#fs_replace' ).html( $( '.br_preview' ).html() );
         } );
         //$( '#myModal' ).modal( 'show' );
@@ -144,7 +144,7 @@ jQuery( document ).ready( function() {
             'name': tpl
         }, function( res ) {
             //alert( res[ 0 ].name );
-            $( '.br_artcontent' ).hide();
+            //$( '.br_artcontent' ).hide();
             var body = $( res.code ).find( '#bodyTable' );
             $( '#Preview' ).html( body );
             //log( res );

@@ -4,7 +4,7 @@
 //require( ABSPATH.'/wp-content/themes/rock-gilleshoarau/includes/wp_single.php');
 ?>
 <article itemscope="" itemtype="https://schema.org/CreativeWork">
-  
+
 
   <?php
   if(has_post_thumbnail()) {
