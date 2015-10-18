@@ -1,11 +1,21 @@
 /*global select:false*/
-select.controller( 'SelectAsyncController', [ '$timeout', '$scope',
-function( $timeout, $scope ) {
+select.controller( 'SelectAsyncController', [ '$timeout', '$scope', '$http',
+function( $timeout, $scope, $http ) {
         'use strict';
         $scope.user = null;
         $scope.users = null;
+        /*
+        $http.get( '/assets/templates.json' ).success( function( response ) {
+            console.log( response[ 0 ] );
+            $scope.users = response;
+        } );*/
         $scope.loadUsers = function() {
+            $http.get( '/assets/templates.json' ).success( function( response ) {
+                console.log( response[ 0 ] );
+                $scope.users = response;
+            } );
             // Use timeout to simulate a 650ms request.
+            /*
             return $timeout( function() {
                 $scope.users = $scope.users || [
                     {
@@ -30,5 +40,6 @@ function( $timeout, $scope ) {
         }
       ];
             }, 650 );
+            */
         };
 } ] );

@@ -54,7 +54,7 @@ totoro.controller( 'AppCtrl', [ '$scope', '$mdSidenav', '$mdDialog', '$location'
         $mdDialog.show( $mdDialog.alert().title( 'Wait...' ).content( 'Reloading ' + what ).ariaLabel( 'Navigation demo' ).ok( $scope.msg ).targetEvent( event ) );
     };
 } ] );
-totoro.controller( 'ListCtrl', [ '$scope', '$mdDialog', function( $scope, $mdDialog ) {
+totoro.controller( 'ListCtrl', [ '$scope', '$mdDialog', '$http', function( $scope, $mdDialog, $http ) {
     'use strict';
     // Liste des templates
     $scope.attachments = [
@@ -75,7 +75,12 @@ totoro.controller( 'ListCtrl', [ '$scope', '$mdDialog', function( $scope, $mdDia
     }
   ];
     // Liste des templates
-    $scope.templates = [
+    $http.get( '/assets/templates.json' ).success( function( response ) {
+        console.log( response[ 0 ] );
+        $scope.templates = response;
+    } );
+    /*
+    [
         {
             name: 'Janet Perkins',
             img: 'img/100-0.jpeg',
@@ -91,7 +96,7 @@ totoro.controller( 'ListCtrl', [ '$scope', '$mdDialog', function( $scope, $mdDia
             img: 'img/100-2.jpeg',
             newMessage: false
     }
-  ];
+  ];*/
     // Liste des Contacts
     $scope.people = [
         {
