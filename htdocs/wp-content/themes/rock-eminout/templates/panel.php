@@ -11,26 +11,43 @@
   </md-input-container>
 
   <div ng-controller="SelectAsyncController" ng-cloak>
-    <md-select placeholder="Email" ng-model="user" md-on-open="loadUsers()">
-      <md-option ng-value="user" ng-repeat="user in users">{{user.name}}</md-option>
+    <md-select placeholder="Email" ng-model="user" md-on-open="loadWpPosts()">
+      <md-option ng-value="user" ng-repeat="user in users">{{user.title}}</md-option>
     </md-select>
   </div>
-  <?php /* The Loop */
-  if ( have_posts() ) {
-    while ( have_posts() ) {
-      the_post();
-      get_template_part( 'templates/email');
-    }
-  } else {
-    get_template_part( 'templates/_nocontent');
-  }
-  ?>
+  <div ng-controller="EmailsTemplatesCtrl as ctrl">
 
-  <md-input-container >
-    <md-icon class="email"><i class="material-icons">subject</i></md-icon>
-    <input ng-model="user.sujet" id="To" name="sujet" type="text" placeholder="Sujet" required>
-    <div ng-messages="sendMailForm.sujet.$error">
-      <div ng-message="required">Champs requis.</div>
-    </div>
-  </md-input-container>
+    <md-autocomplete
+    md-selected-item="ctrl.selectedItem"
+    md-search-text="ctrl.searchText"
+    md-search-text-change="ctrl.searchTextChange(ctrl.searchText)"
+    md-items="item in ctrl.querySearch(ctrl.searchText)"
+    md-item-text="item.display"
+    placeholder="Choix du modèle de mail">
+    <md-item-template>
+      <span md-highlight-text="ctrl.searchText">AA {{item.display}}</span>
+    </md-item-template>
+    <md-not-found>
+      No matches found for "{{ctrl.searchText}}".
+    </md-not-found>
+  </md-autocomplete>
+</div>
+<?php /* The Loop */
+if ( have_posts() ) {
+  while ( have_posts() ) {
+    the_post();
+    get_template_part( 'templates/email');
+  }
+} else {
+  get_template_part( 'templates/_nocontent');
+}
+?>
+
+<md-input-container >
+  <md-icon class="email"><i class="material-icons">subject</i></md-icon>
+  <input ng-model="user.sujet" id="To" name="sujet" type="text" placeholder="Sujet" required>
+  <div ng-messages="sendMailForm.sujet.$error">
+    <div ng-message="required">Champs requis.</div>
+  </div>
+</md-input-container>
 </md-content>

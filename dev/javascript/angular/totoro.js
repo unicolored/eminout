@@ -5,9 +5,10 @@ console.info( 'Début du fichier totoro' );
 // INTERFACE
 var contact = angular.module( 'contact', [] );
 var select = angular.module( 'select', [] );
+var emailstemplates = angular.module( 'emailstemplates', [] );
 /*-------------------------------------*/
 // CREATION DE L'APPLICATION "TOTORO" //
-var totoro = angular.module( 'totoro', [ 'LocalStorageModule', 'ngMaterial', 'select',
+var totoro = angular.module( 'totoro', [ 'LocalStorageModule', 'ngMaterial', 'select', 'emailstemplates',
 function() {
         'use strict';
         console.info( 'Dernière dépendance chargée par totoro!' );
@@ -44,9 +45,9 @@ totoro.controller( 'AppCtrl', [ '$scope', '$mdSidenav', '$mdDialog', '$location'
                 console.log( 'NOPE!' );
             } );
             /*
-            jQuery.each( res, function( i, value ) {
-                jQuery( '#Template' ).append( jQuery( '<option>' ).text( value.name ).attr( 'value', value.slug ) );
-            } );*/
+      jQuery.each( res, function( i, value ) {
+      jQuery( '#Template' ).append( jQuery( '<option>' ).text( value.name ).attr( 'value', value.slug ) );
+    } );*/
             //console.log( res );
         }, function( err ) {
             alert( err );
@@ -80,41 +81,41 @@ totoro.controller( 'ListCtrl', [ '$scope', '$mdDialog', '$http', function( $scop
         $scope.templates = response;
     } );
     /*
-    [
-        {
-            name: 'Janet Perkins',
-            img: 'img/100-0.jpeg',
-            newMessage: true
-    },
-        {
-            name: 'Mary Johnson',
-            img: 'img/100-1.jpeg',
-            newMessage: false
-    },
-        {
-            name: 'Peter Carlsson',
-            img: 'img/100-2.jpeg',
-            newMessage: false
-    }
-  ];*/
+  [
+  {
+  name: 'Janet Perkins',
+  img: 'img/100-0.jpeg',
+  newMessage: true
+},
+{
+name: 'Mary Johnson',
+img: 'img/100-1.jpeg',
+newMessage: false
+},
+{
+name: 'Peter Carlsson',
+img: 'img/100-2.jpeg',
+newMessage: false
+}
+];*/
     // Liste des Contacts
     $scope.people = [
         {
             name: 'Janet Perkins',
             img: 'img/100-0.jpeg',
             newMessage: true
-    },
+  },
         {
             name: 'Mary Johnson',
             img: 'img/100-1.jpeg',
             newMessage: false
-    },
+  },
         {
             name: 'Peter Carlsson',
             img: 'img/100-2.jpeg',
             newMessage: false
-    }
-  ];
+  }
+];
     $scope.goToPerson = function( person, event ) {
         $mdDialog.show( $mdDialog.alert().title( 'Navigating' ).content( 'Inspect ' + person ).ariaLabel( 'Person inspect demo' ).ok( 'Neat!' ).targetEvent( event ) );
     };
