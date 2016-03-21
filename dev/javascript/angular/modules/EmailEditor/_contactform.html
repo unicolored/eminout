@@ -1,0 +1,83 @@
+<form id="contactForm" class="contactform" role="form" name="contactForm" ng-controller="ContactController">
+    <div class="lescoordonnees">
+        <div data-ng-show="contactForm.name.$error.required && contactForm.name.$dirty">
+            <div class="alert alert-warning">
+                <button type="button" class="close" data-dismiss="alert">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <span class="close"></span> Merci d'entrer votre nom et/ou celui de votre société.
+            </div>
+        </div>
+        <div class="alert alert-danger" data-ng-show="error">
+            <button class="close" data-dismiss="alert">
+                x
+            </button>
+            <strong>Désolé !</strong> Une erreur s'est produite.
+        </div>
+        <div class="alert alert-success" data-ng-show="success">
+            <button class="close" data-dismiss="alert">
+                x
+            </button>
+            <strong>Merci ! </strong> Votre demande a bien été envoyée.
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon input-sm" data-ng-show="contactForm.name.$invalid && !contactForm.name.$dirty">
+                    <span class="icon-user2"></span>
+                </div>
+                <div class="input-group-addon input-sm bg-warning" data-ng-show="contactForm.name.$error.minlength && contactForm.name.$dirty || contactForm.name.$invalid && contactForm.name.$dirty">
+                    <span class="icon-user2"></span>
+                </div>
+                <div class="input-group-addon input-sm bg-success" data-ng-show="!contactForm.name.$invalid">
+                    <span class="icon-checkmark"></span>
+                </div>
+                <input data-ng-model="user.name" name="name" required="required" data-ng-minlength="3"
+                type="text" class="form-control input-sm" placeholder="Nom Prénom *"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon input-sm" data-ng-show="contactForm.email.$invalid && !contactForm.email.$dirty">
+                    <span class="icon-mail"></span>
+                </div>
+                <div class="input-group-addon input-sm bg-warning" data-ng-show="contactForm.email.$invalid && contactForm.email.$dirty">
+                    <span class="icon-mail"></span>
+                </div>
+                <div class="input-group-addon input-sm bg-success" data-ng-show="!contactForm.email.$invalid">
+                    <span class="icon-checkmark"></span>
+                </div>
+                <input data-ng-model="user.email" name="email" required="required" type="email"
+                class="form-control input-sm" placeholder="Votre email *" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon input-sm" data-ng-show="contactForm.phone.$invalid && !contactForm.phone.$dirty">
+                    <span class="icon-phone"></span>
+                </div>
+                <div class="input-group-addon input-sm bg-warning" data-ng-show="contactForm.phone.$invalid && contactForm.phone.$dirty">
+                    <span class="icon-phone"></span>
+                </div>
+                <div class="input-group-addon input-sm bg-success" data-ng-show="!contactForm.phone.$invalid">
+                    <span class="icon-checkmark"></span>
+                </div>
+                <input data-ng-model="user.phone" name="phone" required="required" type="phone"
+                class="form-control input-sm" placeholder="N° Téléphone *" />
+            </div>
+        </div>
+        <div class="lemessage">
+            <div class="form-group">
+                <textarea data-ng-model="user.body" class="form-control input-sm" required="required"
+                rows="10" placeholder="Votre message"></textarea>
+            </div>
+        </div>
+    </div>
+    <!-- SUBMIT BUTTON -->
+    <button id="sendmsg" class="btn btn-success btn-lg btn-block" ng-click="send()"
+    data-ng-disabled="contactForm.$invalid">
+        Envoyer
+        <span class="icon-rocket"></span>
+    </button>
+</form>

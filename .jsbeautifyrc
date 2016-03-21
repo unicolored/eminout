@@ -1,0 +1,16 @@
+{
+  "indent": 4,
+  "indent_char": " ",
+  "indent_scripts": "normal",
+  "wrap_line_length": 0,
+  "brace_style": "collapse",
+  "preserve_newlines": false,
+  "max_preserve_newlines": 1,
+  "condense": true,
+  "indent_inner_html": true,
+  "unformatted": [
+    "a",
+    "code",
+    "pre"
+  ]
+}

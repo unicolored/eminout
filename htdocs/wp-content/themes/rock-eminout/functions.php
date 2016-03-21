@@ -33,6 +33,7 @@ register_nav_menu('topmenu','Menu top');
 register_nav_menu('sommaire','Sommaire Frontpage');
 register_nav_menu('portfolio','Portfolio');
 
+require 'includes/functions_emailing.php';
 require 'includes/functions_cssjs.php';
 
 function home_excerpt_length($length) {

@@ -1,7 +1,7 @@
 {
   "name": "Eminout",
   "homepage": "http://emailing.fromscratch.xyz",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "authors": [
     "Gilles H. <contact@gilleshoarau.com>"
   ],
@@ -18,9 +18,17 @@
     "node_modules",
     "bower_components"
   ],
-  "dependencies": {},
-  "devDependencies": {
-    "bootstrap": "3.3.5"
+  "dependencies": {
+    "jquery-form-validator": "~2.2.81",
+    "mandrill-api": "~1.0.38",
+    "angular": "~1.4.7",
+    "angular-local-storage": "~0.2.3",
+    "angular-file-upload": "~2.1.4",
+    "lodash": "~3.10.1",
+    "json3": "~3.3.2",
+    "es5-shim": "~4.1.14",
+    "angular-material": "~0.11.4"
   },
+  "devDependencies": {},
   "appPath": "htdocs"
 }

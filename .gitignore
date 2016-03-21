@@ -45,8 +45,8 @@ htdocs/wp-content/upgrade/
 htdocs/wp-content/uploads/
 htdocs/wp-content/*.php
 
-htdocs/da/wp-content/themes/*.php
-htdocs/da/wp-content/themes/twenty*/
+htdocs/wp-content/themes/*.php
+htdocs/wp-content/themes/twenty*/
 
 htdocs/.htaccess
 htdocs/index.php

@@ -4,6 +4,7 @@
   "themepath":"htdocs/wp-content/themes/rock-eminout/",
   "relativethemepath":"wp-content/themes/rock-eminout/",
   "libspath":"bower_components/",
+  "fontspath":"htdocs/wp-content/themes/rock-eminout/fonts/",
   "assetspath":"htdocs/assets/",
   "devpath":"dev/",
   "temppath":"tmp/"
