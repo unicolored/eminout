@@ -1,4 +1,4 @@
-# Mon thème Wordpress pro. Enfant de BodyRock.
+# Application Envoi Email Marketing
 # humanstxt.org
 
 # TEAM
@@ -8,8 +8,8 @@
 	Location: Paris, France FR
 
 # SITE
-	Version: 0.0.1
+	Version: 0.0.2
 	Site Url: http://emailing.fromscratch.xyz/
 	Keywords: emailing, marketing, prospection, leads
 	Language: French
-	Last Update: 2015-10-17
+	Last Update: 2016-03-21

@@ -1,8 +1,8 @@
 {
   "name": "Eminout",
-  "version": "0.0.1",
-  "vversion": "001",
-  "description": "Mon thème Wordpress pro. Enfant de BodyRock.",
+  "version": "0.0.2",
+  "vversion": "002",
+  "description": "Application Envoi Email Marketing",
   "homepage": "http://emailing.fromscratch.xyz/",
   "keywords": "emailing, marketing, prospection, leads",
   "main": "Gruntfile.js",
